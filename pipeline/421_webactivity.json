@@ -1,0 +1,81 @@
+{
+	"name": "421_webactivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": "https://dummy.restapiexample.com/api/v1/employees"
+				}
+			},
+			{
+				"name": "Filter1",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Web1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Web1').output.data",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@greater(item().employee_age,'60')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Web2",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Filter1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "PUT",
+					"headers": {
+						"x-ms-blob-type": "BlockBlob"
+					},
+					"url": "https://venusa72.blob.core.windows.net/devcontainer/srcfiles/retiredemps.json?sp=racwdlmeop&st=2026-04-22T19:01:45Z&se=2026-04-23T03:16:45Z&spr=https&sv=2025-11-05&sr=c&sig=jB%2FL%2FNZhqXEznAQDPulPV3dgBGzGQsY5b0VZbchAJV0%3D",
+					"body": {
+						"value": "@activity('Filter1').output.Value",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-04-22T19:33:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

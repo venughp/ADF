@@ -1,0 +1,38 @@
+{
+	"name": "ds_423_sql_lookup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_423_sql_lookup",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "server_nm",
+				"type": "varchar"
+			},
+			{
+				"name": "database_nm",
+				"type": "varchar"
+			},
+			{
+				"name": "schema_nm",
+				"type": "varchar"
+			},
+			{
+				"name": "src_tbl",
+				"type": "varchar"
+			},
+			{
+				"name": "tgt_file",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "vschema",
+			"table": "contrl_tbl"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

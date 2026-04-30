@@ -1,0 +1,47 @@
+{
+	"name": "ds_sql_423_parameters",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "423_ls_sql_linkedparamters",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"ls_p_serverName": {
+					"value": "@dataset().p_ds_423_server_nm",
+					"type": "Expression"
+				},
+				"ls_p_database": {
+					"value": "@dataset().p_ds_423_database_nm",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"p_ds_423_server_nm": {
+				"type": "string"
+			},
+			"p_ds_423_database_nm": {
+				"type": "string"
+			},
+			"p_ds_423_schema_nm": {
+				"type": "string"
+			},
+			"p_ds_423_tbl_nm": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().p_ds_423_schema_nm",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().p_ds_423_tbl_nm",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

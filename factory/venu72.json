@@ -1,0 +1,15 @@
+{
+	"name": "venu72",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ea6e02d0-f679-40e5-a9bd-a36201a20e0d",
+		"tenantId": "8f006b19-5920-4fc0-9042-271f60ba93e6"
+	}
+}
