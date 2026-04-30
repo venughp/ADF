@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "venu72"
+		},
+		"423_ls_sql_linkedparamters_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"ls_423_sql_lookup_password": {
+			"value": ""
+		},
+		"ls_git_prasanna_credential": {
+			"value": ""
+		},
+		"423_ls_sql_linkedparamters_properties_typeProperties_server": {
+			"value": "@{linkedService().ls_p_serverName}"
+		},
+		"423_ls_sql_linkedparamters_properties_typeProperties_database": {
+			"value": "@{linkedService().ls_p_database}"
+		},
+		"423_ls_sql_linkedparamters_properties_typeProperties_userName": {
+			"value": "srinivas"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://venusa72.dfs.core.windows.net/"
+		},
+		"ls_423_sql_lookup_properties_typeProperties_server": {
+			"value": "pvrsqlserver2026.database.windows.net"
+		},
+		"ls_423_sql_lookup_properties_typeProperties_database": {
+			"value": "pvrsqldb2026"
+		},
+		"ls_423_sql_lookup_properties_typeProperties_userName": {
+			"value": "srinivas"
+		},
+		"ls_git_prasanna_properties_typeProperties_username": {
+			"value": "mprasannadata"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "venu72"
+		},
+		"423_ls_sql_linkedparamters_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of '423_ls_sql_linkedparamters'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"ls_423_sql_lookup_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_423_sql_lookup'"
+		},
+		"ls_git_prasanna_credential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'credential' of 'ls_git_prasanna'"
+		},
+		"423_ls_sql_linkedparamters_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "@{linkedService().ls_p_serverName}"
+		},
+		"423_ls_sql_linkedparamters_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().ls_p_database}"
+		},
+		"423_ls_sql_linkedparamters_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "srinivas"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://venusa72.dfs.core.windows.net/"
+		},
+		"ls_423_sql_lookup_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "pvrsqlserver2026.database.windows.net"
+		},
+		"ls_423_sql_lookup_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "pvrsqldb2026"
+		},
+		"ls_423_sql_lookup_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "srinivas"
+		},
+		"ls_git_prasanna_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "mprasannadata"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "venu72_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"423_ls_sql_linkedparamters_password": {
+						"value": "[parameters('423_ls_sql_linkedparamters_password')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"ls_423_sql_lookup_password": {
+						"value": "[parameters('ls_423_sql_lookup_password')]"
+					},
+					"ls_git_prasanna_credential": {
+						"value": "[parameters('ls_git_prasanna_credential')]"
+					},
+					"423_ls_sql_linkedparamters_properties_typeProperties_server": {
+						"value": "[parameters('423_ls_sql_linkedparamters_properties_typeProperties_server')]"
+					},
+					"423_ls_sql_linkedparamters_properties_typeProperties_database": {
+						"value": "[parameters('423_ls_sql_linkedparamters_properties_typeProperties_database')]"
+					},
+					"423_ls_sql_linkedparamters_properties_typeProperties_userName": {
+						"value": "[parameters('423_ls_sql_linkedparamters_properties_typeProperties_userName')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"ls_423_sql_lookup_properties_typeProperties_server": {
+						"value": "[parameters('ls_423_sql_lookup_properties_typeProperties_server')]"
+					},
+					"ls_423_sql_lookup_properties_typeProperties_database": {
+						"value": "[parameters('ls_423_sql_lookup_properties_typeProperties_database')]"
+					},
+					"ls_423_sql_lookup_properties_typeProperties_userName": {
+						"value": "[parameters('ls_423_sql_lookup_properties_typeProperties_userName')]"
+					},
+					"ls_git_prasanna_properties_typeProperties_username": {
+						"value": "[parameters('ls_git_prasanna_properties_typeProperties_username')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
