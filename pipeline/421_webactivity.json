@@ -21,6 +21,7 @@
 			},
 			{
 				"name": "Filter1",
+				"description": "hello",
 				"type": "Filter",
 				"dependsOn": [
 					{
